@@ -8,18 +8,18 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-// Define the educational background emojis
-const educationEmojis = [
-  { text: "Primary Education", emoji: "🎒" },
-  { text: "Secondary Education", emoji: "🎓" },
-  { text: "Higher Education", emoji: "🎓+" },
+// Define the weather emojis
+const weatherEmojis = [
+  { text: "Sunny", emoji: "🌞" },
+  { text: "Cloudy", emoji: "☁️" },
+  { text: "Rainy", emoji: "🌧️" },
 ];
 
-export default function EducationalBackgroundForm() {
+export default function WeatherForm() {
   const currentStep = useSelector((store) => store.assessment.currentStep);
   const formData = useSelector((store) => store.assessment.formData);
-  const [selectedEducation, setSelectedEducation] = useState(formData.education || '');
-  const [hoveredEducation, setHoveredEducation] = useState(null);
+  const [selectedWeather, setSelectedWeather] = useState(formData.weather || '');
+  const [hoveredWeather, setHoveredWeather] = useState(null);
   const dispatch = useDispatch();
   const {
     register,
@@ -34,40 +34,40 @@ export default function EducationalBackgroundForm() {
   });
 
   async function processData(data) {
-    dispatch(updateFormData({ ...data, education: selectedEducation }));
+    dispatch(updateFormData({ ...data, weather: selectedWeather }));
     dispatch(setCurrentStep(currentStep + 1));
   }
 
-  function handleEducationClick(educationText) {
-    setSelectedEducation(educationText);
-    setHoveredEducation(null); // Clear hovered emoji when one is selected
-    dispatch(updateFormData({ ...formData, education: educationText }));
+  function handleWeatherClick(weatherText) {
+    setSelectedWeather(weatherText);
+    setHoveredWeather(null); // Clear hovered emoji when one is selected
+    dispatch(updateFormData({ ...formData, weather: weatherText }));
   }
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
       <form className="px-12 py-4" onSubmit={handleSubmit(processData)}>
         <div className="relative flex justify-center space-x-4 mb-4">
-          {educationEmojis.map(({ text, emoji }) => (
+          {weatherEmojis.map(({ text, emoji }) => (
             <div
               key={emoji}
               className={`relative flex flex-col items-center p-2 rounded-lg cursor-pointer transition-colors duration-300 ${
-                selectedEducation === text ? "bg-blue-500" : "bg-transparent"
+                selectedWeather === text ? "bg-blue-500" : "bg-transparent"
               }`}
-              onMouseEnter={() => setHoveredEducation(text)}
-              onMouseLeave={() => setHoveredEducation(null)}
-              onClick={() => handleEducationClick(text)}
+              onMouseEnter={() => setHoveredWeather(text)}
+              onMouseLeave={() => setHoveredWeather(null)}
+              onClick={() => handleWeatherClick(text)}
             >
               <span
                 role="img"
                 aria-label={text}
                 className={`text-4xl transition-colors duration-300 ${
-                  selectedEducation === text ? "text-white" : "text-gray-500"
+                  selectedWeather === text ? "text-white" : "text-gray-500"
                 }`}
               >
                 {emoji}
               </span>
-              {hoveredEducation === text && !selectedEducation && (
+              {hoveredWeather === text && !selectedWeather && (
                 <div className="absolute bottom-10 bg-black text-white text-xs rounded px-2 py-1">
                   {text}
                 </div>
@@ -76,9 +76,9 @@ export default function EducationalBackgroundForm() {
           ))}
         </div>
         <div className="mt-4">
-          {selectedEducation && (
+          {selectedWeather && (
             <div className="text-lg font-semibold">
-              Selected: {selectedEducation}
+              Selected: {selectedWeather}
             </div>
           )}
         </div>
@@ -87,4 +87,3 @@ export default function EducationalBackgroundForm() {
     </div>
   );
 }
-

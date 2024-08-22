@@ -1,30 +1,26 @@
-"use client";
 
 import { useSelector } from "react-redux";
 import EducationBackgroundForm from "./StepForms/EducationBackgroundForm";
 import FormConfirmation from "./StepForms/FormConfirmation";
-import PersonalInfoForm from "./StepForms/PersonalInfoForm";
-import PreferredLanguageForm from "./StepForms/PreferredLanguageForm";
-import ProgrammingExperienceForm from "./StepForms/ProgrammingExperienceForm";
-import TechnicalSkillsForm from "./StepForms/TechnicalSkillsForm";
+import WellBeingForm from "./StepForms/WellBeingForm";
+import WeatherForm from "./StepForms/WeatherForm";
+import HobbiesForm from "./StepForms/HobbiesForm";
 
 export default function StepForm() {
-  const currentStep = useSelector((store) => store.onboarding.currentStep);
+  const currentStep = useSelector((store) => store.assessment.currentStep);
   function renderFormByStep(step) {
     if (step === 1) {
-      return <PersonalInfoForm />;
+      return <WellBeingForm />;
     }
      else if (step === 2) {
       return <EducationBackgroundForm />;
     } 
     else if (step === 3) {
-      return <ProgrammingExperienceForm />;
+      return <WeatherForm />;
     } 
     else if (step === 4) {
-      return <PreferredLanguageForm />;
+      return <HobbiesForm />;
     } else if (step === 5) {
-      return <TechnicalSkillsForm />;
-    } else if (step === 6) {
       return <FormConfirmation />;
     }
   }

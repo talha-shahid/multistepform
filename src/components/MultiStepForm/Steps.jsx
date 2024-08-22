@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default function Steps({ steps }) {
-  const currentStep = useSelector((store) => store.onboarding.currentStep);
+  const currentStep = useSelector((store) => store.assessment.currentStep);
   const currentStepDetails = steps[currentStep - 1];
 
   return (

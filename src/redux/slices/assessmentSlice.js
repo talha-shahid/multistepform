@@ -1,4 +1,3 @@
-// Create a slice
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -6,8 +5,8 @@ const initialState = {
   currentStep: 1,
   formData: {},
 };
-const onboardingStudentsSlice = createSlice({
-  name: "onboarding",
+const assessmentSlice = createSlice({
+  name: "assessment",
   initialState,
   reducers: {
     setCurrentStep: (state, action) => {
@@ -22,5 +21,5 @@ const onboardingStudentsSlice = createSlice({
   },
 });
 export const { setCurrentStep, updateFormData } =
-  onboardingStudentsSlice.actions;
-export default onboardingStudentsSlice.reducer;
+assessmentSlice.actions;
+export default assessmentSlice.reducer;

@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default function FormConfirmation() {
-  const formData = useSelector((store) => store.onboarding.formData);
+  const formData = useSelector((store) => store.assessment.formData);
   async function processData(data) {
     console.log(formData);
   }

@@ -1,9 +1,9 @@
-import { setCurrentStep } from "../../redux/slices/onboardingStudentsSlice";
+import { setCurrentStep } from "../../redux/slices/assessmentSlice";
 import { ChevronLast, ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 export default function NavButtons() {
-  const currentStep = useSelector((store) => store.onboarding.currentStep);
+  const currentStep = useSelector((store) => store.assessment.currentStep);
   const dispatch = useDispatch();
   function handlePrevious() {
     dispatch(setCurrentStep(currentStep - 1));

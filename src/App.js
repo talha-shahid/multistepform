@@ -12,22 +12,18 @@ function App() {
     },
     {
       number: 2,
-      title: "How is the weather today?",
+      title: "What's your level of education?",
     },
     {
       number: 3,
-      title: "Programming Experience",
+      title: "How is the weather today?",
     },
     {
       number: 4,
-      title: "Preferred Programming Languages",
+      title: "What are your hobbies?",
     },
     {
       number: 5,
-      title: "Technical Skills Assessment",
-    },
-    {
-      number: 6,
       title: "Submit and Confirmation",
     },
   ];

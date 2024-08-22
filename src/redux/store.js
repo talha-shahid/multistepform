@@ -1,12 +1,9 @@
-import onboardingStudentsSlice from "./slices/onboardingStudentsSlice";
+import assessmentSlice from "./slices/assessmentSlice";
 
 import { configureStore } from '@reduxjs/toolkit';
 
-//create a store and give it slices
 export const store = configureStore({
   reducer: {
-    onboarding: onboardingStudentsSlice,
+    assessment: assessmentSlice,
   },
 });
-
-//Store =whole state
