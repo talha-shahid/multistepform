@@ -12,7 +12,7 @@ function App() {
     },
     {
       number: 2,
-      title: "Education",
+      title: "How is the weather today?",
     },
     {
       number: 3,
